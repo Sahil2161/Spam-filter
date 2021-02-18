@@ -1,0 +1,114 @@
+<!-- top navigation bar -->
+<div class="row" m-auto>
+  <div class="col">
+    <nav class="navbar navbar-light bg-primary">
+      
+      <div >
+        <a class="navbar-brand" href="dashboard">Home</a>
+      </div>
+      
+      <!-- username -->
+      <div>
+        <p class="lead" title="<%= email%>"> 
+          <%= name%>
+        </p>
+      </div>
+
+      <!-- logout button -->
+      <div class="pr-1">
+        <a href="/users/logout" class="nav-link pe-auto btn btn-secondary">Logout</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="row mt-3" >
+  <div class="col-sm-2">
+    <!-- sidebar -->
+    <nav class="navbar d-flex flex-column align-item-start border-end" style="height: 100%; background-color:whitesmoke;" id="sidebar">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <!--Compose-->
+        <li class="nav-item">
+          <a class="nav-link" href="/compose">Compose Email</a>
+        </li>
+        
+        <!--inbox-->
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">Inbox</a>
+        </li>
+
+        <!--spam-->
+        <li class="nav-item">
+          <a class="nav-link" href="/spam">Spam</a>
+        </li>
+        
+        <!--draft-->
+        <li class="nav-item">
+          <a class="nav-link" href="/drafts">Drafts</a>
+        </li>
+    </nav>
+  </div>
+
+  <div class="col">
+    
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tbody>
+    <tr>
+      <td width="5" >&nbsp;</td>
+      <td>
+          <h2 class="hdn">Drafts</h2>
+          
+          <!-- table of emails -->
+          <table class="th" width="100%" cellspacing="0" cellpadding="2" border="0" bgcolor="#e8eef7">
+            <tbody>
+
+              
+              <% for(let i = rows.length-1; i >=0; --i) { %>
+                <tr bgcolor="#ffffff">
+                  <td width="1%" nowrap="nowrap">
+                    <input type="checkbox" name="t" value="177068b946dc1a84">
+                  </td>
+                  
+                  <td width="25%"><b title="Sender"><%= rows[i].from%></b></td>
+                  
+                  <td width="73%">
+                    <a href="">
+                      <span class="ts">
+                        <b title="Subject"><%= rows[i].subject%></b>
+                        <span title="Body" style="color:#7777CC;">-<%= rows[i].body%></span>
+                      </span>
+                    </a>
+                  </td>
+                  <td width="1%" nowrap="nowrap">
+                    <b title="timestamp"><%= rows[i].timestamp.toLocaleString('hi-IN') %></b>
+                  </td>
+                <% } %>
+                
+                </tr>
+            </tbody>
+          </table>
+
+          <!-- buttons -->
+          <table width="100%" cellspacing="0" cellpadding="2" border="0" bgcolor="#C3D9FF">
+            <tbody>
+              <tr>
+                <td>
+                    <!-- delete button -->
+                    <input type="submit" name="delete_email" value="Delete">&nbsp;&nbsp;
+                    &nbsp;
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+  </div>
+</div>

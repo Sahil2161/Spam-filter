@@ -1,0 +1,95 @@
+<!-- top navigation bar -->
+<div class="row" m-auto>
+  <div class="col">
+    <nav class="navbar navbar-light bg-primary">
+      
+      <div >
+        <a class="navbar-brand" href="dashboard">Home</a>
+      </div>
+      
+      <!-- username -->
+      <div>
+        <p class="lead" title="<%= email%>"> <%= name%> </p>
+      </div>
+
+      <!-- logout button -->
+      <div class="pr-1">
+        <a href="/users/logout" class="nav-link pe-auto btn btn-secondary">Logout</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-sm-2">
+    <!-- sidebar -->
+    <nav class="navbar d-flex flex-column align-item-start border-end" id="sidebar">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <!--Compose-->
+        <li class="nav-item">
+          <a class="nav-link" href="/compose">Compose Email</a>
+        </li>
+        
+        <!--inbox-->
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">Inbox</a>
+        </li>
+
+        <!--spam-->
+        <li class="nav-item">
+          <a class="nav-link" href="/spam">Spam</a>
+        </li>
+        
+        <!--draft-->
+        <li class="nav-item">
+          <a class="nav-link" href="/drafts">Drafts</a>
+        </li>
+    </nav>
+  </div>
+
+  <div class="col">
+    <!-- compose form -->
+    <form action="/compose" name="compose_form" method="POST">
+      <h2 class="hdn">Compose Form</h2>
+
+      <table class="compose" width="100%" cellspacing="0" cellpadding="2">
+        <tbody>
+
+          <!-- reciepient email address -->
+          <tr>
+            <td width="1%"><b id="l-to">To:</b></td>
+            <td><input name="to" type="text" size="40" class="i" required></td>
+          </tr>
+
+          <!-- Subject of the email -->
+          <tr>
+            <td><b id="l-s">Subject:</b></td>
+            <td><input name="subject" type="text" size="40" class="i" aria-labelledby="l-s"></td>
+          </tr>
+
+          <!-- email body -->
+          <tr>
+            <td width="1%"><b id="l-body">Body:</b></td>
+            <td><textarea name="body" title="Message Body" rows="10" cols="50" class="mi" wrap="soft" required></textarea></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <!-- send, save drafts and discard buttons -->
+      <table width="100%" cellspacing="0" cellpadding="2" style="background-color:#C3D9FF" ;>
+        <tbody>
+          <tr>
+            <td>
+              <input type="submit" name="send" value="Send">
+              <input type="submit" name="send" value="Save Draft">&nbsp;
+              <input type="submit" name="send" value="Discard">&nbsp;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
