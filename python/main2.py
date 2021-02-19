@@ -58,6 +58,6 @@ print("Mean accuracy = ",accuracies.mean())
 
 # TODO: serialize and deserialize the model to avoid retraining of the model every time the script is called via node.js
 # pickling or serializing the trained model
-import pickle
-filename = 'finalized_model.sav'
-pickle.dump(classifier, open(filename, 'wb'))
+# import pickle
+# filename = 'finalized_model.sav'
+# pickle.dump(classifier, open(filename, 'wb'))
