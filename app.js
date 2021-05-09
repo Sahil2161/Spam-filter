@@ -14,10 +14,10 @@ require('./config/passport')(passport);
 
 // Connect to Mysql
 var db = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'root',
-    database : 'users'
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'users'
 });
 
 // EJS
@@ -26,11 +26,11 @@ app.set('view engine', 'ejs');
 
 // app settings 
 app.disable('etag');
-app.use( logger('tiny'));
-app.use( express.urlencoded({ extended: true }));
+app.use(logger('tiny'));
+app.use(express.urlencoded({ extended: true }));
 
 // Express session
-app.use( session({ secret: 'secret', resave: true, saveUninitialized: true }));
+app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
 
 // Passport middleware
 app.use(passport.initialize());
@@ -43,9 +43,10 @@ app.use('/users', require('./routes/users.js'));
 
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, (err) => {
-  if(err)
+
+app.listen(PORT, err => {
+  if (err)
     console.error("Error setting up server")
   else
-    console.log("Server listenng on port:",PORT);
+    console.log("Server listenng on port:", PORT);
 });

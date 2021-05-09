@@ -29,6 +29,9 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
     });
 });
 
+router.get('/images/welcome.jpg',(req,res) => {
+    res.sendFile("C:/Users/ravi5/Desktop/Minor/spam filter/web-app/images/welcome.jpg");
+  });
 
 //get compose
 router.get('/compose', ensureAuthenticated, (req, res) => res.render('compose', { name: req.user.name, email: req.user.email }));
